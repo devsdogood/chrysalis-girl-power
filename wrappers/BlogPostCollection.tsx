@@ -1,4 +1,4 @@
-const AnnouncementCollection: React.FC = ({ children }) => {
+const BlogPostCollection: React.FC = ({ children }) => {
     return (
         <div style={{border: 'red 1px solid'}}>
             {children}
@@ -6,4 +6,4 @@ const AnnouncementCollection: React.FC = ({ children }) => {
     );
 }
 
-export default AnnouncementCollection;
+export default BlogPostCollection;

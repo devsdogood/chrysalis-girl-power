@@ -1,4 +1,4 @@
-const NewsletterCollection: React.FC = ({ children }) => {
+const MentorCollection: React.FC = ({ children }) => {
     return (
         <div style={{border: 'blue 1px solid'}}>
             {children}
@@ -6,4 +6,4 @@ const NewsletterCollection: React.FC = ({ children }) => {
     );
 }
 
-export default NewsletterCollection;
+export default MentorCollection;

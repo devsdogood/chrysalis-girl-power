@@ -7,18 +7,11 @@ import {
   isIPageFieldsItem,
 } from "../@types/contentTypes";
 import { IPage } from "../@types/generated/contentful";
-import AnnouncementPreview from "../components/previews/AnnouncementPreview";
+import BlogPostPreview from "../components/previews/BlogPostPreview";
 import ContentSection from "../components/views/ContentSection";
-import EventPreview from "../components/previews/EventPreview";
-import ExternalResourcePreview from "../components/previews/ExternalResourcePreview";
-import Facilitator from "../components/views/Facilitator";
-import NewsletterPreview from "../components/previews/NewsletterPreview";
-import ResourcePreview from "../components/previews/ResourcePreview";
-import AnnouncementCollection from "./AnnouncementCollection";
-import EventCalendar from "./EventCalendar";
-import FacilitatorCollection from "./FacilitatorCollection";
-import NewsletterCollection from "./NewsletterWrapper";
-import ResourceCollection from "./ResourceCollection";
+import MentorPreview from "../components/previews/MentorPreview";
+import BlogPostCollection from "./BlogPostCollection";
+import MentorCollection from "./MentorWrapper";
 
 type BlockRendererProps = {
   block: IPage | IPageFieldsItem | IPageItemFieldsItem;
@@ -63,18 +56,11 @@ const BlockRenderer: React.FC<BlockRendererProps> = ({ block }) => {
 };
 
 const ContentTypeMap = {
-  [ContentTypes.Announcement]: AnnouncementPreview,
-  [ContentTypes.AnnouncementCollection]: AnnouncementCollection,
+  [ContentTypes.BlogPost]: BlogPostPreview,
+  [ContentTypes.BlogPostCollection]: BlogPostCollection,
   [ContentTypes.ContentSection]: ContentSection,
-  [ContentTypes.Event]: EventPreview,
-  [ContentTypes.EventCalendar]: EventCalendar,
-  [ContentTypes.ExternalResource]: ExternalResourcePreview,
-  [ContentTypes.Facilitator]: Facilitator,
-  [ContentTypes.FacilitatorCollection]: FacilitatorCollection,
-  [ContentTypes.Newsletter]: NewsletterPreview,
-  [ContentTypes.NewsletterCollection]: NewsletterCollection,
-  [ContentTypes.Resource]: ResourcePreview,
-  [ContentTypes.ResourceCollection]: ResourceCollection,
+  [ContentTypes.Mentor]: MentorPreview,
+  [ContentTypes.MentorCollection]: MentorCollection,
 };
 
 export default BlockRenderer;

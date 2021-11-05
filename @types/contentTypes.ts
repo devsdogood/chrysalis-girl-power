@@ -7,40 +7,24 @@ import { IContentSection, IPage, IPageFields } from "./generated/contentful";
  * https://github.com/intercom/contentful-typescript-codegen/issues/54
  */
 export enum ContentTypes {
-    Announcement = 'announcement',
-    AnnouncementCollection = 'announcementCollection',
+    Author = 'author',
+    BlogPost = 'blogPost',
+    BlogPostCollection = 'blogPostCollection',
     ContentSection = 'contentSection',
-    Event = 'event',
-    EventCalendar = 'eventCalendar',
-    ExternalResource = 'externalResource',
-    Facilitator = 'facilitator',
-    FacilitatorCollection = 'facilitatorCollection',
+    Mentor = 'mentor',
+    MentorCollection = 'mentorCollection',
     NavigationItem = 'navigationItem',
     NavigationMenu = 'navigationMenu',
-    Newsletter = 'newsletter',
-    NewsletterCollection = 'newsletterCollection',
     Page = 'page',
-    Resource = 'resource',
-    ResourceCollection = 'resourceCollection',
 };
 
 /** Collections which map to single entries */
 export const CollectionMap = {
-    [ContentTypes.AnnouncementCollection]: [
-        ContentTypes.Announcement,
+    [ContentTypes.BlogPostCollection]: [
+        ContentTypes.BlogPost,
     ],
-    [ContentTypes.EventCalendar]: [
-        ContentTypes.Event,
-    ],
-    [ContentTypes.FacilitatorCollection]: [
-        ContentTypes.Facilitator,
-    ],
-    [ContentTypes.NewsletterCollection]: [
-        ContentTypes.Newsletter,
-    ],
-    [ContentTypes.ResourceCollection]: [
-        ContentTypes.ExternalResource,
-        ContentTypes.Resource,
+    [ContentTypes.MentorCollection]: [
+        ContentTypes.Mentor,
     ],
 }
 
