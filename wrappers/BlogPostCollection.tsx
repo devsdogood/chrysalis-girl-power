@@ -1,8 +1,10 @@
+import { Container } from "react-bootstrap";
+
 const BlogPostCollection: React.FC = ({ children }) => {
     return (
-        <div style={{border: 'red 1px solid'}}>
+        <Container className="mt-5">
             {children}
-        </div>
+        </Container>
     );
 }
 
