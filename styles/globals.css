@@ -14,3 +14,13 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.mentor-bio-row {
+  border-bottom: 1px solid #B9AB97;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+}
+
+.mentor-bio-row:last-child {
+  border-bottom:none;
+}
