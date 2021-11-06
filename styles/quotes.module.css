@@ -1,0 +1,38 @@
+.quotes {
+    position: relative;
+    font-style: italic;
+    color: rgb(36, 36, 36) !important;
+    border-color: #B9AB97;
+    background-color: #dbccb6 ;
+    font-weight: 25px;
+    align-items: center;
+}
+
+.quotes blockquote{
+    margin-bottom: 0px;
+}
+
+.quotes::before, .quotes::after{
+    position: absolute;
+    content: ' "';
+    font-size: 60px;
+    color: #57401f;
+    font-family: 'Fleur De Leah', cursive;
+
+}
+
+.quotes::before{
+    top: -10px;
+    left: 20px;
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+
+.quotes::after{
+    bottom: -20px;
+    right: 20px;
+}
+
