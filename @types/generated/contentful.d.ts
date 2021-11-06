@@ -50,7 +50,7 @@ export interface IBlogPostFields {
   thumbnail?: Asset | undefined;
 
   /** Content */
-  content?: Document | undefined;
+  content: Document;
 }
 
 export interface IBlogPost extends Entry<IBlogPostFields> {
