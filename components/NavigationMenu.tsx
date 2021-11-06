@@ -28,7 +28,8 @@ const NavigationMenu: React.FC<INavigationMenuFields> = ({ menuItems, logo }) =>
         </Nav>
     <Nav>
         {menuItems.map((item) => (
-            <Link href={ item.fields.page?.fields.slug || item.fields.externalUrl || "/"} passHref>
+            // @ts-ignore
+            <Link key={item.sys.id} href={ item.fields.page?.fields.slug || item.fields.externalUrl || "/" } passHref>
                 <Nav.Link key={item.sys.id}>
                     <span className="fw-bold p-3" style={{color: '#333' }}>
                         {item.fields.title}
