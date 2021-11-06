@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const NavigationMenu: React.FC<INavigationMenuFields> = ({ menuItems, logo }) => (
     <>
-    <Navbar expand="lg" bg="white" variant="undefined" >
+    <Navbar expand="lg" bg="white" >
     <Container>
     <Navbar.Brand>
        <Image 
