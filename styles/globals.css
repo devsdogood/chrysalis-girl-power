@@ -7,20 +7,20 @@ body {
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  color: blue;
+  text-decoration: underline;
 }
 
 * {
   box-sizing: border-box;
 }
 
-.mentor-bio-row {
+.resources-row {
   border-bottom: 1px solid #B9AB97;
-  padding-bottom: 25px;
-  margin-bottom: 25px;
+  padding-bottom: 45px;
+  margin-bottom: 45px;
 }
 
-.mentor-bio-row:last-child {
+.resources-row:last-child {
   border-bottom:none;
 }
