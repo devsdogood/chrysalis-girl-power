@@ -2,6 +2,7 @@ import Image from "next/image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { IBlogPost } from "../../@types/generated/contentful";
 import { Col, Container, Row } from "react-bootstrap";
+import { imageBlur } from "../../utils/image-blur";
 
 type BlogPostViewProps = {
   entry: IBlogPost;
@@ -23,6 +24,8 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ entry }) => {
             {entry.fields.thumbnail && (
               <figure style={{ height: "20vh", position: "relative" }}>
                 <Image
+                  blurDataURL={imageBlur(entry.fields.thumbnail.fields.file.url)}
+                  placeholder='blur'
                   src={`https:${entry.fields.thumbnail.fields.file.url}`}
                   layout="fill"
                   alt={entry.fields.thumbnail.fields.description}
