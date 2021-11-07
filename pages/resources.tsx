@@ -1,15 +1,9 @@
 import styles from '../styles/resources.module.css'
-import Head from 'next/head';
 import Image from 'next/image'
 import {Container, Row, Col} from 'react-bootstrap'
 
 const Resources = () => (
     <>
-   <Head>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></link>
-        <link href="https://fonts.googleapis.com/css?family=Assistant:400,700" rel="stylesheet"></link>
-    </Head>
-    
     <Container>
     <h1 className={`${styles.title} my-5`}>resources</h1>
     <p>Chrysalis GirlPower is a violence prevention initiative made possible through a partnership with the Chrysalis Foundation, MercyOne Des Moines, supported by the Commonspirit Health Mission, and Ministry Fund to advance health equity through community response programming. </p>

@@ -1,20 +1,9 @@
 import MentorBio from '../components/mentor-bio'
 import styles from '../styles/meet-the-mentors.module.css'
-import Head from 'next/head';
 import {Container, Row, Col} from 'react-bootstrap'
-
-
-/* <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link href="https://fonts.googleapis.com/css?family=Assistant:400,700" rel="stylesheet">*/
 
 const MeetTheMentors = () => (
     <>
-    <Head>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></link>
-        <link href="https://fonts.googleapis.com/css?family=Assistant:400,700" rel="stylesheet"></link>
-        <link rel="icon" href="/favicon.ico" type="image/png"></link>
-        <link rel="shortcut icon" href="/favicon.ico" type="image/png"></link>
-    </Head>
     <Container>
         <Row>
             <Col>
