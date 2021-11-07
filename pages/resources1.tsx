@@ -3,13 +3,12 @@ import Image from 'next/image'
 import {Container, Row, Col} from 'react-bootstrap'
 
 const Resources = () => (
-    <>
     <Container>
     <h1 className={`${styles.title} my-5`}>resources</h1>
     <p>Chrysalis GirlPower is a violence prevention initiative made possible through a partnership with the Chrysalis Foundation, MercyOne Des Moines, supported by the Commonspirit Health Mission, and Ministry Fund to advance health equity through community response programming. </p>
     <Row className='resources-row'>
-        <Col><a href='http://www.chrysalisfdn.org/'> <Image src='/Chrysalis_Logo_green-02 (3).png' width='150' height='124'/> </a> </Col>
-        <Col><a href= 'http://www.mercyone.org/'> <Image src='/mercyone-logo-vector.png' width='250' height='124'/> </a></Col>
+        <Col><a href='https://www.chrysalisfdn.org/'> <Image src='/Chrysalis_Logo_green-02 (3).png' width='150' height='124'/> </a> </Col>
+        <Col><a href= 'https://www.mercyone.org/'> <Image src='/mercyone-logo-vector.png' width='250' height='124'/> </a></Col>
         <Col><a href= 'https://commonspirit.org/'> <Image src='/CommonSpirit logo.JPG' width='333' height='82.5'/> </a></Col>
     </Row>
 
@@ -19,7 +18,7 @@ const Resources = () => (
     <p>GirlPower Peer Mentors Study the 5 Practices of Exemplary Leadership Model. Learn more at: <a href= "https://www.theleadershipchallenge.org">www.theleadershipchallenge.org </a> </p>
     </Row>
     
-    <Row>
+    <Row className='resources-row'>
     <h2 className={styles.name}>GirlPower Training Partners: </h2>
     <ul style={{marginLeft:'50px'}}>
         <li>Adventures in Social Drama: <a href= "https://www.asdrama.org">www.asdrama.org</a> </li>
@@ -27,8 +26,7 @@ const Resources = () => (
         <li>Crisis Intervention and Advocacy Center: <a href= "https://www.supportingsurvivors.org">www.supportingsurvivors.org</a> </li>
     </ul>
     </Row>
-    </Container>
-    </>   
+    </Container> 
 );
 
 export default Resources;

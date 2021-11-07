@@ -1,5 +1,5 @@
 import { Entry } from "contentful";
-import { IContentSection, IPage, IPageFields } from "./generated/contentful";
+import { IContentSection, IImageWithLink, IPage, IPageFields } from "./generated/contentful";
 
 /**
  * `contentful-typescript-codegen` doesn't generate an enum of content types
@@ -10,7 +10,9 @@ export enum ContentTypes {
     Author = 'author',
     BlogPost = 'blogPost',
     BlogPostCollection = 'blogPostCollection',
+    ContentRow = 'contentRow',
     ContentSection = 'contentSection',
+    LinkWrappedContent = 'imageWithLink',
     Mentor = 'mentor',
     MentorCollection = 'mentorCollection',
     NavigationItem = 'navigationItem',
@@ -28,14 +30,19 @@ export const CollectionMap = {
     ],
 }
 
+export type NonCollectionPageFields = IContentSection | IImageWithLink;
+
+/** IDs of content types embeddable into `IContentSection` */
+export type EmbeddedEntries = 'contentRow';
+
 /** Get the fields from an array-like entry */
 export type IEntryFieldsItem<T extends Entry<IPageFields | IPageFieldsItem['fields']>> = T['fields']['content'][number];
 
 /** Top-level collections on the page (announcement collection, event calendar, etc). `IContentSection` is excluded since it isn't a collection. */
-export type IPageFieldsItem = Exclude<IEntryFieldsItem<IPage>, IContentSection>;
+export type IPageFieldsItem = Exclude<IEntryFieldsItem<IPage>, NonCollectionPageFields>;
 
 /** Child items on the page (content section, announcement, etc).*/
-export type IPageItemFieldsItem = IEntryFieldsItem<IPageFieldsItem> | IContentSection;
+export type IPageItemFieldsItem = IEntryFieldsItem<IPageFieldsItem> | NonCollectionPageFields;
 
 export const isIPage = (block: IPage | IPageFieldsItem | IPageItemFieldsItem): block is IPage => (block as IPage).sys?.contentType?.sys?.id === 'page';
 

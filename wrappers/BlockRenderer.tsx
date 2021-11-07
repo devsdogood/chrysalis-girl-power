@@ -12,6 +12,7 @@ import ContentSection from "../components/views/ContentSection";
 import MentorPreview from "../components/previews/MentorPreview";
 import BlogPostCollection from "./BlogPostCollection";
 import MentorCollection from "./MentorWrapper";
+import LinkWrappedContent from "./LinkWrappedContent";
 
 type BlockRendererProps = {
   block: IPage | IPageFieldsItem | IPageItemFieldsItem;
@@ -61,6 +62,7 @@ const ContentTypeMap = {
   [ContentTypes.ContentSection]: ContentSection,
   [ContentTypes.Mentor]: MentorPreview,
   [ContentTypes.MentorCollection]: MentorCollection,
+  [ContentTypes.LinkWrappedContent]: LinkWrappedContent,
 };
 
 export default BlockRenderer;
