@@ -10,7 +10,6 @@ import BlockRenderer from '../wrappers/BlockRenderer';
 import Custom404Page from './404';
 import collectionData from '../utils/collections.preval';
 import { Col, Container, Row } from 'react-bootstrap';
-import styles from "../styles/title.module.css";
 
 const SlugPage: NextPage<{page: IPage | false}> = ({ page }) => {
   if (!page) return <Custom404Page />
@@ -22,7 +21,6 @@ const SlugPage: NextPage<{page: IPage | false}> = ({ page }) => {
         <meta name="description" content={page.fields.description} />
       </Head>
       <Container>
-      <h4 className = {styles.title} >  the girl power program </h4>
         <Row>
           <Col>
             <BlockRenderer block={page} />

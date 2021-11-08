@@ -4,11 +4,11 @@ import { IContentRow, IContentSection } from "../../@types/generated/contentful"
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 import Image from 'next/image';
 import { Card, Row, Col } from "react-bootstrap";
-import styles from "../../styles/quotes.module.css";
 import BlockRenderer from '../../wrappers/BlockRenderer';
 import { ContentTypes, EmbeddedEntries } from '../../@types/contentTypes';
 import { Asset } from 'contentful';
 import Link from 'next/link';
+import styles from './ContentSection.module.css';
 
 type OptionRenderFunction = (node: any, children: React.ReactChild[]) => JSX.Element;
 
@@ -21,8 +21,10 @@ const RenderQuote: OptionRenderFunction = (node, children) =>  (
     </Card>
   </Col>
 );
-const RenderParagraph: OptionRenderFunction = (_, children) => ( <div>{children}</div> );
-const RenderHeading2: OptionRenderFunction = (_, children) => ( <h2 style={{color:"#808A25"}}>{children}</h2> );
+const RenderParagraph: NodeRenderer = (_, children) => ( <p className="my-4">{children}</p> );
+const RenderHeading3: NodeRenderer = (_, children) => ( <h3 className={styles.name}>{children}</h3> );
+const RenderHeading4: NodeRenderer = (_, children) => ( <h4 className={styles.title}>{children}</h4> );
+const renderHr: NodeRenderer = (_, __) => ( <hr className="my-3" /> );
 
 type EntryRenderProps = {
   blocks: IContentRow['fields']['items'];
@@ -79,11 +81,13 @@ const options = {
   renderNode: {
     [BLOCKS.QUOTE]: RenderQuote, 
     [BLOCKS.PARAGRAPH]: RenderParagraph,
-    [BLOCKS.HEADING_2]: RenderHeading2,
+    [BLOCKS.HEADING_3]: RenderHeading3,
+    [BLOCKS.HEADING_4]: RenderHeading4,
     [BLOCKS.EMBEDDED_ENTRY]: entryRender,
     [INLINES.EMBEDDED_ENTRY]: entryRender,
     [BLOCKS.EMBEDDED_ASSET]: renderImage,
     [INLINES.HYPERLINK]: renderHyperlink,
+    [BLOCKS.HR]: renderHr,
   }
 };
 
