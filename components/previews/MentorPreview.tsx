@@ -1,5 +1,8 @@
-import Image from 'next/image'
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import Image from "next/image";
+import { Row, Col } from "react-bootstrap";
 import { IMentor } from "../../@types/generated/contentful";
+import styles from '../../styles/meet-the-mentors.module.css'
 
 type MentorPreviewProps = {
   entry: IMentor;
@@ -7,17 +10,17 @@ type MentorPreviewProps = {
 
 const MentorPreview: React.FC<MentorPreviewProps> = ({ entry }) => {
   return (
-    <p>
-      {entry.fields.name} with image 
-      <div style={{height: '20vh', width: '300px', position: 'relative'}}>
-        <Image
-          src={`https:${entry.fields.image.fields.file.url}`} 
-          alt={entry.fields.image.fields.description}
-          layout="fill"
-          objectFit="contain"
-        />
-      </div>
-    </p>
+    <Row className="mentor-bio-row">
+      <Col>
+        <Image src={`https:${entry.fields.image.fields.file.url}`} width="256" height="338" />
+      </Col>
+      <Col>
+        <h2 className={styles.name}>{entry.fields.name}</h2>
+        <p className={styles.grade}>{entry.fields.experience}</p>
+        <p className={styles.interests}>Interests: {entry.fields.interests}</p>
+        <p className={styles.quote}>{documentToReactComponents(entry.fields.bio)}</p>
+      </Col>
+    </Row>
   );
 };
 
