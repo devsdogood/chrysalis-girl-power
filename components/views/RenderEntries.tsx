@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Col, Row } from "react-bootstrap";
 import { ContentTypes, EmbeddedEntries } from "../../@types/contentTypes";
 import { IContentRow } from "../../@types/generated/contentful";
+import { imageBlur } from "../../utils/image-blur";
 import BlockRenderer from "../../wrappers/BlockRenderer";
 
 
@@ -43,6 +44,8 @@ export const RenderImage: NodeRenderer = (node) => {
       <Image
         src={`https:${image.fields.file.url}`}
         alt={image.fields.description}
+        blurDataURL={imageBlur(image.fields.file.url)}
+        placeholder='blur'
         layout="fill"
         objectFit="contain"
       />

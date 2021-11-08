@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Row, Col } from "react-bootstrap";
 import { IMentor } from "../../@types/generated/contentful";
 import styles from '../../styles/meet-the-mentors.module.css'
+import { imageBlur } from "../../utils/image-blur";
 
 type MentorPreviewProps = {
   entry: IMentor;
@@ -17,6 +18,8 @@ const MentorPreview: React.FC<MentorPreviewProps> = ({ entry }) => {
         <Image
           src={`https:${image.fields.file.url}`}
           alt={image.fields.description}
+          blurDataURL={imageBlur(image.fields.file.url)}
+          placeholder='blur'
           width="256"
           height="338"
         />
