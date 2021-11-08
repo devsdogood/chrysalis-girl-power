@@ -3,14 +3,13 @@ import { EntryCollection } from 'contentful';
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head';
 import { Params } from 'next/dist/server/router';
-import { CollectionMap, ContentTypes, IPageFieldsItem, isIPageFieldsItem } from '../@types/contentTypes';
-import { IContentSection, IPage, IPageFields } from '../@types/generated/contentful';
+import { CollectionMap, ContentTypes, IPageFieldsItem, isIPageFieldsItem, NonCollectionPageFields } from '../@types/contentTypes';
+import { IPage, IPageFields } from '../@types/generated/contentful';
 import getContentful from '../utils/contentful';
 import BlockRenderer from '../wrappers/BlockRenderer';
 import Custom404Page from './404';
 import collectionData from '../utils/collections.preval';
 import { Col, Container, Row } from 'react-bootstrap';
-import styles from "../styles/title.module.css";
 
 const SlugPage: NextPage<{page: IPage | false}> = ({ page }) => {
   if (!page) return <Custom404Page />
@@ -22,7 +21,6 @@ const SlugPage: NextPage<{page: IPage | false}> = ({ page }) => {
         <meta name="description" content={page.fields.description} />
       </Head>
       <Container>
-      <h4 className = {styles.title} >  the girl power program </h4>
         <Row>
           <Col>
             <BlockRenderer block={page} />
@@ -33,7 +31,7 @@ const SlugPage: NextPage<{page: IPage | false}> = ({ page }) => {
   );
 };
 
-const convertToAllEntries = <T extends IPageFieldsItem | IContentSection>(block: T): T => {
+const convertToAllEntries = <T extends IPageFieldsItem | NonCollectionPageFields>(block: T): T => {
   if (isIPageFieldsItem(block) && block.fields.useMostRecent) {
     const contentType = CollectionMap[block.sys.contentType.sys.id];
 
