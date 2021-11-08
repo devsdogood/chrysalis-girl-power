@@ -1,5 +1,5 @@
 import React from 'react';
-import { documentToReactComponents, NodeRenderer } from "@contentful/rich-text-react-renderer";
+import { documentToReactComponents, NodeRenderer, RenderMark } from "@contentful/rich-text-react-renderer";
 import { IContentRow, IContentSection } from "../../@types/generated/contentful";
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 import Image from 'next/image';
@@ -10,9 +10,9 @@ import { Asset } from 'contentful';
 import Link from 'next/link';
 import styles from './ContentSection.module.css';
 
-type OptionRenderFunction = (node: any, children: React.ReactChild[]) => JSX.Element;
+const RenderBold: RenderMark[string] = (text) => <b className="fs-5" style={{color: "#808A25"}}>{text}</b>
 
-const RenderQuote: OptionRenderFunction = (node, children) =>  (
+const RenderQuote: NodeRenderer = (_, children) =>  (
   <Col xs={12}>
     <Card className={`${styles.quotes} my-2 p-4 border-4 fst-italic fw-normal`}>
       <blockquote className="blockquote ml-2 fs-6">
@@ -77,7 +77,7 @@ const renderHyperlink: NodeRenderer = (node, children) => (
 
 const options = {
   renderMark: {
-    [MARKS.BOLD]: (text: string): JSX.Element => <b className="fs-5" style={{color: "#808A25"}}>{text}</b>,
+    [MARKS.BOLD]: RenderBold,
   },
   renderNode: {
     [BLOCKS.QUOTE]: RenderQuote, 
@@ -96,7 +96,6 @@ type ContentSectionProps = { entry: IContentSection };
 
 const ContentSection: React.FC<ContentSectionProps> = ({ entry }: ContentSectionProps) => (
   <>
-    {/* @ts-ignore */}
     {documentToReactComponents(entry.fields.content, options)}
   </>
 );
