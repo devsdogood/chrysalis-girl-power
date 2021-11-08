@@ -61,6 +61,7 @@ const renderImage: NodeRenderer = (node) => {
     <div style={{position: 'relative', height: '100%'}}>
       <Image
         src={`https:${image.fields.file.url}`}
+        alt={image.fields.description}
         layout="fill"
         objectFit="contain"
       />
