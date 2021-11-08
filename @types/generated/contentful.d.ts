@@ -103,6 +103,33 @@ export interface IBlogPostCollection extends Entry<IBlogPostCollectionFields> {
   };
 }
 
+export interface IContentRowFields {
+  /** Title */
+  title?: string | undefined;
+
+  /** Items */
+  items: (NonCollectionPageFields)[];
+}
+
+/** A row you can insert into a content section to display content in a responsive manner. */
+
+export interface IContentRow extends Entry<IContentRowFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "contentRow";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IContentSectionFields {
   /** Title */
   title?: string | undefined;
@@ -123,6 +150,36 @@ export interface IContentSection extends Entry<IContentSectionFields> {
     contentType: {
       sys: {
         id: "contentSection";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IImageWithLinkFields {
+  /** Title */
+  title?: string | undefined;
+
+  /** Link */
+  link: string;
+
+  /** Content */
+  content: IContentSection[];
+}
+
+/** For when you need to add a link around content that doesn't normally support linking (images, for example) */
+
+export interface IImageWithLink extends Entry<IImageWithLinkFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "imageWithLink";
         linkType: "ContentType";
         type: "Link";
       };
@@ -270,7 +327,12 @@ export interface IPageFields {
   description?: string | undefined;
 
   /** Content */
-  content: (IBlogPostCollection | IContentSection | IMentorCollection)[];
+  content: (
+    | IBlogPostCollection
+    | IContentSection
+    | IImageWithLink
+    | IMentorCollection
+  )[];
 }
 
 /** A page to be accessible on your website */
@@ -296,7 +358,9 @@ export type CONTENT_TYPE =
   | "author"
   | "blogPost"
   | "blogPostCollection"
+  | "contentRow"
   | "contentSection"
+  | "imageWithLink"
   | "mentor"
   | "mentorCollection"
   | "navigationItem"
