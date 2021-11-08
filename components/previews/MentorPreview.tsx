@@ -9,10 +9,17 @@ type MentorPreviewProps = {
 };
 
 const MentorPreview: React.FC<MentorPreviewProps> = ({ entry }) => {
+  const image = entry.fields.image;
+
   return (
     <Row className="mentor-bio-row">
       <Col>
-        <Image src={`https:${entry.fields.image.fields.file.url}`} width="256" height="338" />
+        <Image
+          src={`https:${image.fields.file.url}`}
+          alt={image.fields.description}
+          width="256"
+          height="338"
+        />
       </Col>
       <Col>
         <h2 className={styles.name}>{entry.fields.name}</h2>
