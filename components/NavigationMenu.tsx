@@ -7,19 +7,17 @@ import { useRouter } from "next/dist/client/router";
 import classNames from "classnames";
 
 type NavigationItemProps = {
-  id: string;
   path: string;
   title?: string;
   isActive?: boolean;
 };
 
 const NavigationItem: React.FC<NavigationItemProps> = ({
-  id,
   path,
   title,
   isActive,
 }) => (
-  <Link key={id} href={path} passHref>
+  <Link href={path} passHref>
     <Nav.Link>
       <span
         className={classNames("fw-bold", "mx-2", "px-1", {
@@ -76,7 +74,7 @@ const NavigationMenu: React.FC<INavigationMenuFields> = ({
 
                 return (
                   <NavigationItem
-                    id={item.sys.id}
+                    key={item.sys.id}
                     path={path}
                     title={item.fields.title}
                     isActive={isActive}
