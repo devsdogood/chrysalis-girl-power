@@ -1,4 +1,5 @@
 import { NodeRenderer } from "@contentful/rich-text-react-renderer";
+import classNames from "classnames";
 import Link from "next/link";
 import { Col, Card } from "react-bootstrap";
 import styles from "./ContentSection.module.css"
@@ -20,7 +21,7 @@ export const RenderHeading3: NodeRenderer = (_, children) => (
 );
 
 export const RenderHeading4: NodeRenderer = (_, children) => (
-  <h4 className={styles.title}>{children}</h4>
+  <h4 className={classNames(styles.title, "green-underline")}>{children}</h4>
 );
 
 export const RenderHR: NodeRenderer = (_, __) => <hr className="my-3" />;
