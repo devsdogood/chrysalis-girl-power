@@ -6,8 +6,6 @@
     font-family: "Assistant", "Helvetica Neue", sans-serif;
     color: #333;
     display: inline-block;
-    background-image: linear-gradient(to bottom, transparent 60%, #B0BA25 0);
-    text-shadow: -2px 2px 0px rgb(255 255 255 / 35%);
     margin-bottom: 30px;
 }
 
