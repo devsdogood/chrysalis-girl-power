@@ -60,20 +60,3 @@
     bottom: -20px;
     right: 20px;
 }
-
-.styled-link {
-    color: #333;
-    font-weight: 700;
-    text-decoration: none;
-    border-bottom: 1px dotted #333;
-    transition: all 300ms ease-in-out;
-}
-
-.styled-link:hover {
-    color: #B0BA25;
-}
-
-/* Contentful inserts a <u> element in links */
-.styled-link u {
-    text-decoration: none;
-}
