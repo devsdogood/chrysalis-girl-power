@@ -27,6 +27,6 @@ export const RenderHR: NodeRenderer = (_, __) => <hr className="my-3" />;
 
 export const RenderHyperlink: NodeRenderer = (node, children) => (
   <Link href={node.data.uri}>
-    <a>{children}</a>
+    <a className="styled-link">{children}</a>
   </Link>
 );

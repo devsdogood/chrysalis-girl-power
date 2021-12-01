@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
-import { Button, Card, Row, Col } from "react-bootstrap";
+import { Card, Row, Col } from "react-bootstrap";
 import { IBlogPost } from "../../@types/generated/contentful";
 
 type BlogPostPreviewProps = {
@@ -30,7 +30,7 @@ const BlogPostPreview: React.FC<BlogPostPreviewProps> = ({ entry }) => {
           <Card.Title>{entry.fields.title}</Card.Title>
           <Card.Text>{entry.fields.description}</Card.Text>
           <Link href={`/blog/${entry.fields.slug}`} passHref>
-            <Button variant="primary">Read More</Button>
+            <a className="styled-link">Read More</a>
           </Link>
         </Card.Body>
       </Col>
